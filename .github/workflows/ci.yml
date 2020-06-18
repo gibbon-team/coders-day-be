@@ -1,5 +1,8 @@
 name: trigger jenkins job
-on: [push]
+on:
+  push:
+    branches:
+      master
 jobs:
 
   build:
