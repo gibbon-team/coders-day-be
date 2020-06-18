@@ -4,6 +4,8 @@ import lombok.Data;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Data
 @Entity
 public class Answer {
@@ -18,6 +20,7 @@ public class Answer {
     @Column
     Boolean isCorrect;
 
+    @JsonIgnore
     @ManyToOne
     Question question;
 }

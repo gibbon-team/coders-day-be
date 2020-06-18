@@ -1,8 +1,9 @@
 package com.codersday.repository;
 
 import com.codersday.model.Quiz;
-import org.springframework.data.repository.CrudRepository;
 
-public interface QuizRepository extends CrudRepository<Quiz, Long> {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface QuizRepository extends JpaRepository<Quiz, Long> {
 
 }
