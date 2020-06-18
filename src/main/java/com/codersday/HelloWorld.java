@@ -1,11 +1,12 @@
 package com.codersday;
 
-public class HelloWorld {
-    public static void main(String[] args) {
-        System.out.println(getHelloWorld());
-    }
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-    public static String getHelloWorld() {
-        return "HelloWorld";
+@SpringBootApplication
+public class HelloWorld {
+
+    public static void main(String[] args) {
+        SpringApplication.run(HelloWorld.class, args);
     }
 }
