@@ -1,13 +1,11 @@
 package com.codersday;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
-class HelloWorldTest {
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
-    @Test
-    void contextLoads() {
+public class HelloWorldTest {
+    public void test_getHelloWorld_equals() {
+
     }
-
 }

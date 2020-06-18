@@ -1,21 +1,20 @@
 version: '3'
 services:
-    db-mongo:
-        image: mongo:4.2.8
-        container_name: "mongodb4"
+    db-quiz:
+        build: ./docker/db-quiz
+        container_name: "db-quiz"
         ports:
-        - "27017:27017"
+        - "3306:3306"
         environment:
-            - MONGO_INITDB_ROOT_USERNAME=root
-            - MONGO_INITDB_ROOT_PASSWORD=rootpassword
-            - MONGO_INITDB_DATABASE=codersday
+        - MYSQL_ROOT_PASSWORD=xxx
+        - TZ=Europe/Warsaw
         networks:
             - quiz-network
     ap-quiz:
         container_name: "ap-quiz"
         build: ./
         depends_on:
-        - db-mongo
+        - db-quiz
         networks:
             - quiz-network
 networks:
