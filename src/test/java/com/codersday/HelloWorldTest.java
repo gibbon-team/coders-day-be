@@ -4,9 +4,9 @@ package com.codersday;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
-class HelloWorldTest {
+public class HelloWorldTest {
 
-    void test_getHelloWorld_equals() {
+    public void test_getHelloWorld_equals() {
         // given
         String expected = "HelloWorld";
 
@@ -17,7 +17,7 @@ class HelloWorldTest {
         assertEquals(expected, result);
     }
 
-    void test_getHelloWorld_notEquals() {
+    public void test_getHelloWorld_notEquals() {
         // given
         String notExpected = "GoodbyeWorld";
 
