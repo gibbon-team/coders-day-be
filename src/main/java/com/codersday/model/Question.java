@@ -3,6 +3,9 @@ package com.codersday.model;
 import lombok.Data;
 
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.List;
 
 @Data
@@ -16,6 +19,7 @@ public class Question {
     @Column
     String description;
 
+    @JsonIgnore
     @ManyToOne
     Quiz quiz;
 
