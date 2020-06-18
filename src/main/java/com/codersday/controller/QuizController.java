@@ -25,6 +25,7 @@ public class QuizController {
 
     @PostMapping
     public ResponseEntity<Quiz> saveQuiz(@RequestBody Quiz quiz) {
+        quiz = quizRepository.save(quiz);
         return ResponseEntity.ok(quiz);
     }
 
