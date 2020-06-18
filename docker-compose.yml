@@ -13,7 +13,7 @@ services:
             - quiz-network
     ap-quiz:
         container_name: "ap-quiz"
-        build: ./ap-quiz
+        build: ./
         depends_on:
         - db-mongo
         networks:
