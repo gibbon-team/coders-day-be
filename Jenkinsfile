@@ -2,6 +2,11 @@ pipeline {
     agent any
 
     stages {
+        stage ('Check Docker Availability') {
+            steps {
+                sh "docker version"
+            }
+        }
         stage ('Compile Stage') {
             steps {
                 withMaven(maven: 'maven_3_6_3') {
