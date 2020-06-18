@@ -12,6 +12,10 @@ services:
     ap-quiz:
         container_name: "ap-quiz"
         build: ./
+        links:
+            - "db-quiz"
+        ports:
+            - "80:8080"
         depends_on:
         - db-quiz
         networks:
