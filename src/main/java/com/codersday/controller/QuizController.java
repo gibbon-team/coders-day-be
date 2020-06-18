@@ -11,6 +11,7 @@ import com.codersday.repository.QuizRepository;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -28,18 +29,18 @@ public class QuizController {
     private final QuestionRepository questionRepository;
 
     @PostMapping
-    public ResponseEntity<Quiz> saveQuiz(@RequestBody Quiz quiz) {
-        quiz.getQuestions().forEach(question -> {
-            List<Answer> answers1 = answerRespository.saveAll(question.getAnswers());
-            question.setAnswers(answers1);
-        });
-
-        List<Question> questions = questionRepository.saveAll(quiz.getQuestions());
-        quiz.setQuestions(questions);
-
+    public ResponseEntity<?> saveQuiz(@RequestBody Quiz quiz) {
         Quiz saved = quizRepository.save(quiz);
 
-        return ResponseEntity.ok(saved);
+        quiz.getQuestions().forEach(question -> {
+            question.setQuiz(saved);
+            Question savedQuestion = questionRepository.save(question);
+
+            question.getAnswers().forEach(a -> a.setQuestion(savedQuestion));
+            answerRespository.saveAll(question.getAnswers());
+        });
+
+        return ResponseEntity.status(HttpStatus.OK).build();
     }
 
     @GetMapping
